@@ -1,18 +1,22 @@
+# PRENDO LIBERIAS
+
 library(tidyverse)
-library(covdata)
+library(covdata) # Esta se instaló desde repo de github  https://kjhealy.github.io/covdata/
 library(prismatic)
 library(ggsci)
 library(paletteer)
 library(ggrepel)
 
+
+# GUARDO DATA EN UN NUEVO OBJETO
 data <- covnat
 
 
-## Countries to highlight
+## PAISES SELECCIONADOS ORIGINALES + ARGENTINA
 focus_cn <- c("CHN", "DEU", "GBR", "USA", "IRN", "JPN",
               "KOR", "ITA", "FRA", "ESP", "CHE", "TUR", "ARG")
 
-## Colors
+## Colores
 cgroup_cols <- c(prismatic::clr_darken(paletteer_d("ggsci::category20_d3"), 0.2)[1:length(focus_cn)], "gray70")
 
 
@@ -33,7 +37,7 @@ plot_casos <- data %>%
          end_label = case_when(iso3 %in% focus_cn ~ end_label,
                                TRUE ~ NA_character_),
          cgroup = case_when(iso3 %in% focus_cn ~ iso3,
-                            TRUE ~ "ZZOTHER")) %>%
+                            TRUE ~ "OTROS")) %>%
   ggplot(mapping = aes(x = days_elapsed, y = cu_cases,
                        color = cgroup, label = end_label,
                        group = cname)) +
@@ -59,11 +63,11 @@ dev.off()
 
 ggsave(plot= last_plot(), filename = "plots/casos_cum.png", width = 10, height = 7)
 
-
+# GUARDA OBJETO HTML
 interactive_casos <- plotly::ggplotly(plot_casos)
 
 
-htmlwidgets::saveWidget(interactive_casos, file = "interactive_casos.html")
+#htmlwidgets::saveWidget(interactive_casos, file = "interactive_casos.html")
 
 
 
@@ -85,7 +89,7 @@ plot_muertes <- data %>%
          end_label = case_when(iso3 %in% focus_cn ~ end_label,
                                TRUE ~ NA_character_),
          cgroup = case_when(iso3 %in% focus_cn ~ iso3,
-                            TRUE ~ "ZZOTHER")) %>%
+                            TRUE ~ "OTROS")) %>%
   ggplot(mapping = aes(x = days_elapsed, y = cu_deaths,
                        color = cgroup, label = end_label,
                        group = cname)) +
@@ -111,7 +115,9 @@ dev.off()
 
 ggsave(plot= last_plot(), filename = "plots/muertes_cum.png", width = 10, height = 7)
 
+
+# GUARDA OBJETO HTML
 interactive_muertes <- plotly::ggplotly(plot_muertes)
 
-
-htmlwidgets::saveWidget(interactive_muertes, file = "interactive_decesos.html")
+# GUARDA OBJETO HTML
+# htmlwidgets::saveWidget(interactive_muertes, file = "interactive_decesos.html")
