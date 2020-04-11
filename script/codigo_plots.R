@@ -111,4 +111,7 @@ dev.off()
 
 ggsave(plot= last_plot(), filename = "plots/muertes_cum.png", width = 10, height = 7)
 
-plotly::ggplotly(plot_muertes)
+interactive_muertes <- plotly::ggplotly(plot_muertes)
+
+
+htmlwidgets::saveWidget(interactive_muertes, file = "interactive_decesos.html")
