@@ -47,15 +47,23 @@ plot_casos <- data %>%
                      trans = "log2") +
   labs(x = "Días desde el 100º caso confirmado",
        y = "Número acumulado de casos reportados (log2 scale)",
-       title = "Número acumulado de casos reportados por COVID-19, Países seleccionados",
-       subtitle = paste("ECDC data al", format(max(covnat$date), "%A %e de %B de %Y")),
+       title = "Número acumulado de casos reportados por COVID-19",
+       subtitle = paste("Países seleccionados | Datos de ECDC al", format(max(covnat$date), "%A %e de %B de %Y")),
        caption = "Código: Kieran Healy @kjhealy / Data: https://www.ecdc.europa.eu/") +
   hrbrthemes::theme_ipsum()
 
 
 plot_casos
 
-plotly::ggplotly(plot_casos)
+dev.off()
+
+ggsave(plot= last_plot(), filename = "plots/casos_cum.png", width = 10, height = 7)
+
+
+interactive_casos <- plotly::ggplotly(plot_casos)
+
+
+htmlwidgets::saveWidget(interactive_casos, file = "interactive_casos")
 
 
 
@@ -91,12 +99,16 @@ plot_muertes <- data %>%
                      trans = "log2") +
   labs(x = "Días desde la primera muerte confirmada",
        y = "Número acumulado de muertes reportadas (log2 scale)",
-       title = "Número acumulado de muertes reportadas por COVID-19,Países seleccionados",
-       subtitle = paste("ECDC data al", format(max(covnat$date), "%A %e de %B de %Y")),
+       title = "Número acumulado de muertes reportadas por COVID-19",
+       subtitle = paste("Países seleccionados | Datos de ECDC al", format(max(covnat$date), "%A %e de %B de %Y")),
        caption = "Código: Kieran Healy @kjhealy / Data: https://www.ecdc.europa.eu/") +
   hrbrthemes::theme_ipsum()
 
 
 plot_muertes
+
+dev.off()
+
+ggsave(plot= last_plot(), filename = "plots/muertes_cum.png", width = 10, height = 7)
 
 plotly::ggplotly(plot_muertes)
