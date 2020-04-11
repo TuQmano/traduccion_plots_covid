@@ -7,8 +7,13 @@
 
 ![](plots/casos_cum.png)
 
+[Acá una versión interactiva](https://tuqmano.github.io/traduccion_plots_covid/index.html)
+
+---
 
 #### El acumulado de *decesos* para países seleccionados
 
 ![](plots/muertes_cum.png)
+
+[Acá una versión interactiva](https://tuqmano.github.io/traduccion_plots_covid/interactive_decesos.html)
 

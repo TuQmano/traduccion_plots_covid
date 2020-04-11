@@ -63,7 +63,7 @@ ggsave(plot= last_plot(), filename = "plots/casos_cum.png", width = 10, height =
 interactive_casos <- plotly::ggplotly(plot_casos)
 
 
-htmlwidgets::saveWidget(interactive_casos, file = "interactive_casos")
+htmlwidgets::saveWidget(interactive_casos, file = "interactive_casos.html")
 
 
 
