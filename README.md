@@ -18,11 +18,11 @@
 [Acá una versión interactiva](https://tuqmano.github.io/traduccion_plots_covid/interactive_decesos.html)
 
 
-#### Comparación entre países de LATAM 
+## Comparativo entre países de LATAM 
 
 
 
-![](plots/casosLatAm_cum.png)
+![](plots/casoosLatAm_cum.png)
 
 [Acá una versión interactiva](https://tuqmano.github.io/traduccion_plots_covid/interactive_casos_latam.html)
 
@@ -32,7 +32,7 @@
 ![](plots/muertesLatAm_cum.png)
 
 [Acá una versión interactiva](https://tuqmano.github.io/traduccion_plots_covid/interactive_decesos_latam.html)
-ivo de paises LATAM
+
 
 
 
