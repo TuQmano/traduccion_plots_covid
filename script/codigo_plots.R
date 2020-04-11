@@ -37,7 +37,7 @@ plot_casos <- data %>%
          end_label = case_when(iso3 %in% focus_cn ~ end_label,
                                TRUE ~ NA_character_),
          cgroup = case_when(iso3 %in% focus_cn ~ iso3,
-                            TRUE ~ "OTROS")) %>%
+                            TRUE ~ "z-OTROS")) %>%
   ggplot(mapping = aes(x = days_elapsed, y = cu_cases,
                        color = cgroup, label = end_label,
                        group = cname)) +
@@ -89,7 +89,7 @@ plot_muertes <- data %>%
          end_label = case_when(iso3 %in% focus_cn ~ end_label,
                                TRUE ~ NA_character_),
          cgroup = case_when(iso3 %in% focus_cn ~ iso3,
-                            TRUE ~ "OTROS")) %>%
+                            TRUE ~ "z-OTROS")) %>%
   ggplot(mapping = aes(x = days_elapsed, y = cu_deaths,
                        color = cgroup, label = end_label,
                        group = cname)) +
