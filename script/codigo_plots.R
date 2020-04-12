@@ -1,4 +1,6 @@
 # PRENDO LIBERIAS
+# 
+remotes::install_github("kjhealy/covdata")
 
 library(tidyverse)
 library(covdata) # Esta se instaló desde repo de github  https://kjhealy.github.io/covdata/
@@ -6,6 +8,8 @@ library(prismatic)
 library(ggsci)
 library(paletteer)
 library(ggrepel)
+
+
 
 
 # GUARDO DATA EN UN NUEVO OBJETO
@@ -129,7 +133,8 @@ interactive_muertes <- plotly::ggplotly(plot_muertes)
 
 
 ## Seleccionamos
-focus_latam <- c("ARG", "BRA", "BOL", "CHL", "VEN", "ECU", "COL", "PER", "URY", "PRY")
+focus_latam <- c("ARG", "BRA", "BOL", "CHL", "VEN", "ECU", "COL", "PER", 
+                 "URY", "PRY", "PAN", "DOM", "CRI", "HND", "GTM", "SLV", "CUB")
 
 ## Colors
 cgroup_cols <- c(prismatic::clr_darken(paletteer_d("ggsci::category20_d3"), 0.2)[1:length(focus_latam)], "gray70")
