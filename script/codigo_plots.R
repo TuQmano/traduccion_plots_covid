@@ -71,7 +71,7 @@ ggsave(plot= last_plot(), filename = "plots/casos_cum.png", width = 10, height =
 interactive_casos <- plotly::ggplotly(plot_casos)
 
 
-#htmlwidgets::saveWidget(interactive_casos, file = "interactive_casos.html")
+htmlwidgets::saveWidget(interactive_casos, file = "interactive_casos.html")
 
 
 
@@ -124,7 +124,7 @@ ggsave(plot= last_plot(), filename = "plots/muertes_cum.png", width = 10, height
 interactive_muertes <- plotly::ggplotly(plot_muertes)
 
 # GUARDA OBJETO HTML
-# htmlwidgets::saveWidget(interactive_muertes, file = "interactive_decesos.html")
+ htmlwidgets::saveWidget(interactive_muertes, file = "interactive_decesos.html")
 
 
 
@@ -142,6 +142,7 @@ cgroup_cols <- c(prismatic::clr_darken(paletteer_d("ggsci::category20_d3"), 0.2)
 
 # CASOS POSITIVOS
 plot_casos_latam <- data %>%
+  filter(iso3 %in% focus_latam) %>% 
   filter(cu_cases > 99) %>%
   mutate(days_elapsed = date - min(date),
          end_label = ifelse(date == max(date), cname, NA),
@@ -190,7 +191,7 @@ ggsave(plot= last_plot(), filename = "plots/casosLatAm_cum.png", width = 10, hei
 interactive_casos <- plotly::ggplotly(plot_casos_latam)
 
 # GUARDA OBJETO HTML
-# htmlwidgets::saveWidget(interactive_casos, file = "interactive_casos_latam.html")
+ htmlwidgets::saveWidget(interactive_casos, file = "interactive_casos_latam.html")
 
 
 
@@ -198,6 +199,7 @@ interactive_casos <- plotly::ggplotly(plot_casos_latam)
 
 
 plot_muertes_latam <- data %>%
+  filter(iso3 %in% focus_latam) %>% 
   filter(cu_deaths > 0) %>%
   mutate(days_elapsed = date - min(date),
          end_label = ifelse(date == max(date), cname, NA),
@@ -245,5 +247,5 @@ ggsave(plot= last_plot(), filename = "plots/muertesLatAm_cum.png", width = 10, h
 interactive_decesos <- plotly::ggplotly(plot_muertes_latam)
 
 # GUARDA OBJETO HTML
-#htmlwidgets::saveWidget(interactive_decesos, file = "interactive_decesos_latam.html")
+htmlwidgets::saveWidget(interactive_decesos, file = "interactive_decesos_latam.html")
 
