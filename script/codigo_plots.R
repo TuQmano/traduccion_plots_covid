@@ -178,7 +178,7 @@ plot_casos_latam
 
 dev.off()
 
-ggsave(plot= last_plot(), filename = "plots/casoosLatAm_cum.png", width = 10, height = 7)
+ggsave(plot= last_plot(), filename = "plots/casosLatAm_cum.png", width = 10, height = 7)
 
 
 # GUARDA OBJETO HTML
