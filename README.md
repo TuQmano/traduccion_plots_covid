@@ -22,7 +22,7 @@
 
 
 
-![](plots/casoosLatAm_cum.png)
+![](plots/casosLatAm_cum.png)
 
 [Acá una versión interactiva](https://tuqmano.github.io/traduccion_plots_covid/interactive_casos_latam.html)
 
