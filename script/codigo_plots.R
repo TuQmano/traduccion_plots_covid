@@ -1,6 +1,7 @@
 # PRENDO LIBERIAS
 # 
-remotes::install_github("kjhealy/covdata")
+
+#remotes::install_github("kjhealy/covdata")
 
 library(tidyverse)
 library(covdata) # Esta se instaló desde repo de github  https://kjhealy.github.io/covdata/
